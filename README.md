@@ -21,3 +21,14 @@ will judge me kindly.
 
 Make a new com.example.tinyasync app.  Copy the three java files into
 src/com/example/tinyasync and the Android manifest.
+
+## Further reading
+
+This is a degenerate example of the half-sync, half-async pattern:
+
+https://www.linux.com/community/blogs/132-mobile/750382-android-asynctask-internal-half-sync-half-async-design-pattern
+
+Instead of a queue a new thread is fired off for every request.  For
+infrequent tasks (such as a user pressing a button) there's no need
+for queuing, and it also allows for the tasks to be asynchronous from
+each other.
