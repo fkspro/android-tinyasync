@@ -20,7 +20,8 @@ will judge me kindly.
 ## Instructions
 
 Make a new com.example.tinyasync app.  Copy the three java files into
-src/com/example/tinyasync and the Android manifest.
+src/com/example/tinyasync, and the Android manifest and layout files
+to their appropriate places.
 
 ## Further reading
 
@@ -32,3 +33,39 @@ Instead of a queue a new thread is fired off for every request.  For
 infrequent tasks (such as a user pressing a button) there's no need
 for queuing, and it also allows for the tasks to be asynchronous from
 each other.
+
+## Motivation
+
+If it's still not clear why anyone would want to do this ever, I came
+up with some use cases:
+
+* Debugging and testing.  Robotium is great but its focus is testing
+the app from the perspective of the user.  If you need to figure out a
+tricky bug between your internal app logic and your api server it may
+be a lot easier to whip up a dozen lines of java that trigger the bug
+directly and print debugging info to a textview.
+
+* UX user testing, psych experiments.  You can easily and quickly
+graft arbitrary functionality onto existing app code, from sending
+certain button presses to a server to a full remote monitoring and
+control system.
+
+* A farfetched and contrived industrial testing example.  You have a
+central testing computer that instructs multiple workers to change
+physical switches and valves, or use the phone to record video/sound.
+This is an extreme inversion of control scenario.  Instead of the user
+running the app which launches multiple worker processes, the central
+testing computer uses the app to have human workers perform processes
+in the real world.
+
+* You loved HyperCard.  You like procedural programming and blocking
+I/O.  You secretly wish you could write Android apps like 90s perl
+CGIs, where each page on the web server corresponded to a single perl
+file containing all the code needed to display and process that page.
+
+## Future plans?
+
+Take this insanity to its logical conclusion and use coroutines, so
+you can just yield() on anything that might block and otherwise run
+all your code directly within the activity instead of runnables on
+external threads.
