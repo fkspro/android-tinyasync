@@ -50,13 +50,13 @@ graft arbitrary functionality onto existing app code, from sending
 certain button presses to a server to a full remote monitoring and
 control system.
 
-* A farfetched and contrived industrial testing example.  You have a
-central testing computer that instructs multiple workers to change
-physical switches and valves, or use the phone to record video/sound.
-This is an extreme inversion of control scenario.  Instead of the user
-running the app which launches multiple worker processes, the central
-testing computer uses the app to have human workers perform processes
-in the real world.
+* Any situation where the user is not the one "driving" the app.  For
+example, an automated industrial testing system might need a worker to
+go to various parts of the plant, activate switches, record video,
+etc.  This is an extreme inversion of control example, where most of
+the application is controlled by the server and the user responds to
+activities that the server pops up, rather than the (usual) other way
+around.
 
 * You loved HyperCard.  You like procedural programming and blocking
 I/O.  You secretly wish you could write Android apps like 90s perl
