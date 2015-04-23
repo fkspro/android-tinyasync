@@ -33,7 +33,7 @@ public class GetUrl {
 	    StringBuilder result = new StringBuilder();
 	    
 	    while ((line = result_reader.readLine()) != null) {
-		result.append(line);
+		result.append(line).append("\n");
 	    }
 
 	    return result.toString();
